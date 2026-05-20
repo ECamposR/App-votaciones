@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from app.schemas.user import UserLogin, UserCreate, UserRead, UserSetup, SetupStatus
+from app.schemas.user import (
+    UserLogin,
+    UserCreate,
+    UserUpdate,
+    UserPasswordChange,
+    UserRead,
+    UserSetup,
+    SetupStatus,
+)
 from app.schemas.poll import (
     VoterGroupBase, VoterGroupCreate, VoterGroupUpdate, VoterGroupRead,
     CategoryBase, CategoryCreate, CategoryUpdate, CategoryRead,
@@ -12,6 +20,8 @@ from app.schemas.poll import (
 __all__ = [
     "UserLogin",
     "UserCreate",
+    "UserUpdate",
+    "UserPasswordChange",
     "UserRead",
     "UserSetup",
     "SetupStatus",

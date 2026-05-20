@@ -47,13 +47,13 @@
 
 ---
 
-## Sprint 3 — Backend Reports + Users
+## Sprint 3 — Backend Reports + Users ✅
 
-- `[ ]` TASK-031 — Implementar router polls: GET /polls/{id}/report.xlsx [rescatar de V1]
-- `[ ]` TASK-032 — Implementar router users: CRUD completo (solo role=admin)
-- `[ ]` TASK-033 — Implementar POST /users/{id}/change-password
-- `[ ]` TASK-034 — Tests: reports XLSX básicos
-- `[ ]` TASK-035 — Tests: users CRUD con restricciones de rol
+- `[x]` TASK-031 — Implementar router polls: GET /polls/{id}/report.xlsx [rescatar de V1]
+- `[x]` TASK-032 — Implementar router users: CRUD completo (solo role=admin)
+- `[x]` TASK-033 — Implementar POST /users/{id}/change-password
+- `[x]` TASK-034 — Tests: reports XLSX básicos
+- `[x]` TASK-035 — Tests: users CRUD con restricciones de rol
 
 ---
 

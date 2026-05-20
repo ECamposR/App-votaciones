@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import uuid
 from typing import Any
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Response, status
 from sqlalchemy import select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.deps import get_db, get_current_user
+from app.deps import get_db, get_current_user, require_admin
 from app.models.user import AdminUser
 from app.models.poll import Poll, VoterGroup, Category, Option, PollStatus
 from app.schemas.poll import (
@@ -15,6 +15,7 @@ from app.schemas.poll import (
     CategoryCreate, CategoryUpdate, CategoryRead
 )
 from app.services.importer import import_options_from_file
+from app.services.reports import generate_poll_report_xlsx
 
 router = APIRouter(prefix="/polls", tags=["polls"])
 
@@ -426,3 +427,36 @@ async def import_options(
         filename=file.filename,
     )
     return summary
+
+
+@router.get("/{id}/report.xlsx")
+async def download_poll_report(
+    id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+    _current_user: AdminUser = Depends(require_admin),
+) -> Response:
+    """
+    Genera un reporte XLSX del poll. Solo disponible cuando la votación está cerrada.
+    """
+    result = await db.execute(select(Poll).where(Poll.id == id))
+    poll = result.scalar_one_or_none()
+    if not poll:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Encuesta no encontrada",
+        )
+
+    if poll.status != PollStatus.CLOSED:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="El reporte XLSX solo puede generarse cuando la encuesta está cerrada.",
+        )
+
+    file_bytes, filename = await generate_poll_report_xlsx(db, id)
+    return Response(
+        content=file_bytes,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+        },
+    )

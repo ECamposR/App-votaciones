@@ -6,6 +6,25 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Implementar Sprint 3 con exportación XLSX de reportes y CRUD de usuarios administrativos.
+- **Cambios:**
+  - `backend/app/schemas/user.py` — Ampliado: agregados esquemas de actualización y cambio de contraseña.
+  - `backend/app/schemas/__init__.py` — Actualizado: exporta los nuevos esquemas de usuario.
+  - `backend/app/services/reports.py` — Nuevo: generador XLSX con hojas `Resumen` y `Resultados`.
+  - `backend/app/routers/users.py` — Nuevo: CRUD de usuarios administrativos y cambio de contraseña con validación de rol.
+  - `backend/app/routers/polls.py` — Actualizado: agregado `GET /api/polls/{id}/report.xlsx`.
+  - `backend/app/main.py` — Actualizado: registrado el router de usuarios.
+  - `backend/tests/test_users_reports.py` — Nuevo: cobertura de CRUD de usuarios, permisos y exportación XLSX.
+  - `docs/ai/HANDOFF.md` — Actualizado: Sprint 3 marcado como completado y próxima acción movida a Sprint 4.
+  - `docs/ai/TASKS.md` — Actualizado: TASK-031 a TASK-035 marcadas como completadas.
+  - `docs/ai/GOVERNANCE.md` — Actualizado previamente para formalizar la regla de interoperabilidad documental.
+- **Decisiones tomadas:** El reporte XLSX quedó restringido a polls cerrados y a usuarios admin; el CRUD de usuarios bloquea eliminar o desactivar al último admin activo.
+- **Resultado:** Sprint 3 implementado en código y documentado; la ejecución de tests de integración quedó limitada por la indisponibilidad del PostgreSQL de pruebas en este sandbox.
+- **Siguiente:** Sprint 4 frontend admin si se decide continuar.
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Formalizar la regla de interoperabilidad documental para sesiones futuras de IA.
 - **Cambios:**
   - `docs/ai/GOVERNANCE.md` — Ajustado: se agregó la regla explícita de que todo cambio debe registrarse fielmente en `WORKLOG.md`, `HANDOFF.md`, `TASKS.md` y `DECISIONS.md` cuando aplique.

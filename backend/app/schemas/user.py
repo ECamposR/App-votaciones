@@ -16,6 +16,17 @@ class UserCreate(UserBase):
     role: AdminRole = AdminRole.OPERATOR
 
 
+class UserUpdate(BaseModel):
+    username: str | None = Field(None, min_length=3, max_length=50, pattern=r"^[a-zA-Z0-9_\-]+$")
+    role: AdminRole | None = None
+    is_active: bool | None = None
+
+
+class UserPasswordChange(BaseModel):
+    current_password: str | None = Field(None, min_length=8, max_length=128)
+    new_password: str = Field(..., min_length=8, max_length=128)
+
+
 class UserRead(BaseModel):
     id: uuid.UUID
     username: str

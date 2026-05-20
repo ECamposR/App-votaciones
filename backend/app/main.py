@@ -45,12 +45,14 @@ app = FastAPI(
 from app.routers.auth import router as auth_router
 from app.routers.setup import router as setup_router
 from app.routers.polls import router as polls_router
+from app.routers.users import router as users_router
 from app.routers.voting import router as voting_router
 from app.routers.dashboard import router as dashboard_router
 
 app.include_router(setup_router)
 app.include_router(auth_router)
 app.include_router(polls_router, prefix="/api")
+app.include_router(users_router, prefix="/api")
 app.include_router(voting_router)
 app.include_router(dashboard_router, prefix="/api")
 

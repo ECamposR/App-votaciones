@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.3.0 — Backend completo (Sprint 1 y Sprint 2 implementados)
+- **Versión actual:** 0.4.0 — Backend completo hasta Sprint 3 (reports + users)
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -45,21 +45,28 @@
 - `routers/dashboard.py`: `GET /api/dashboard/{id}/stream` — SSE nativo con `StreamingResponse`, sin Redis ni WebSockets
 - Tests: 23 tests en 3 archivos (test_auth, test_polls, test_scoring, test_voting) — **23/23 pasando, 90% cobertura global**
 
+**Sprint 3 — Backend Reports + Users**
+- `services/reports.py`: generador XLSX con hoja resumen y hoja de resultados
+- `routers/polls.py`: `GET /api/polls/{id}/report.xlsx` con restricción a polls cerrados y acceso admin
+- `routers/users.py`: CRUD completo de usuarios administrativos + cambio de contraseña con validaciones de seguridad
+- `schemas/user.py`: esquemas para actualización y cambio de contraseña
+- `tests/test_users_reports.py`: cobertura de CRUD de usuarios, permisos de rol y exportación XLSX
+
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
-**→ Sprint 3: Reportes XLSX y CRUD de usuarios administrativos (TASK-031 a TASK-035)**
+**→ Sprint 4: Frontend Admin (TASK-040 a TASK-047)**
 
-Ver `TASKS.md` sección "Sprint 3" para la lista completa.
+Ver `TASKS.md` sección "Sprint 4" para la lista completa.
 
 ### 🚫 Bloqueado
 - Nada bloqueado actualmente
 
 ### ⚠️ Desalineaciones detectadas en este checkout
 - `frontend/` no existe en el árbol real, aunque la documentación aún lo menciona como parte del proyecto objetivo.
-- `backend/app/routers/users.py` y `backend/app/services/reports.py` todavía no existen; Sprint 3 sigue pendiente.
 - `README.md` y `ARCHITECTURE.md` describen una arquitectura objetivo más amplia que el estado físico actual del repo.
+- La validación de runtime de la suite de pruebas quedó limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
 
 ### ❓ Decisiones pendientes
 - Subdominio exacto del VPS donde se desplegará (para Nginx config y TrustedHostMiddleware)
@@ -69,7 +76,7 @@ Ver `TASKS.md` sección "Sprint 3" para la lista completa.
 ## Cómo continuar desde aquí
 
 1. Leer este archivo ✅
-2. Leer `TASKS.md` → ver qué task es "next" (Sprint 3 → TASK-031)
+2. Leer `TASKS.md` → ver qué task es "next" (Sprint 4 → TASK-040)
 3. Leer `CONTRACT.md` → reglas de negocio no negociables
 4. Leer `ARCHITECTURE.md` → entender el diseño del sistema
 5. Leer `V1_RETROSPECTIVE.md` → entender los hallazgos de seguridad y retrospectiva de V1
