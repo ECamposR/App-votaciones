@@ -6,6 +6,30 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Arrancar Sprint 4 y montar el frontend administrativo base del proyecto.
+- **Cambios:**
+  - `frontend/package.json` — Nuevo: Vite + Vue 3 + Pinia + Vue Router.
+  - `frontend/vite.config.js` — Nuevo: dev server y proxy hacia el backend.
+  - `frontend/index.html` — Nuevo: entrypoint de la SPA.
+  - `frontend/Dockerfile` — Nuevo: build estático del frontend.
+  - `frontend/src/main.js` — Nuevo: bootstrap de Vue, Pinia, router y auth bootstrap.
+  - `frontend/src/App.vue` — Nuevo: contenedor raíz de la app.
+  - `frontend/src/router/index.js` — Nuevo: rutas y guards de navegación.
+  - `frontend/src/stores/auth.js` y `frontend/src/stores/polls.js` — Nuevos: stores de Pinia.
+  - `frontend/src/api/*` — Nuevos: cliente HTTP con cookies, CSRF, refresh y wrappers para auth/polls/users.
+  - `frontend/src/components/AppShell.vue` — Nuevo: shell administrativo con navegación lateral.
+  - `frontend/src/views/LoginView.vue`, `SetupView.vue`, `admin/DashboardView.vue`, `admin/PollDetailView.vue`, `admin/ImportView.vue`, `admin/UsersView.vue` — Nuevas: pantallas base del panel admin.
+  - `frontend/src/styles/main.css` — Nuevo: sistema visual base del frontend.
+  - `docker-compose.dev.yml` — Actualizado: servicio `frontend` para Vite en desarrollo.
+  - `README.md`, `docs/ai/HANDOFF.md`, `docs/ai/TASKS.md` — Actualizados: el frontend ya existe y Sprint 4 quedó documentado como completado.
+- **Decisiones tomadas:** Mantener un frontend vanilla CSS sin dependencia de Tailwind para evitar bloquear la validación por falta de instalación de paquetes; usar proxy de Vite para desarrollo local.
+- **Resultado:** Sprint 4 implementado en árbol real y documentado; falta validar la ejecución con dependencias instaladas y completar el Sprint 5.
+- **Siguiente:** Sprint 5: pantallas públicas de votación y dashboard SSE.
+
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Implementar Sprint 3 con exportación XLSX de reportes y CRUD de usuarios administrativos.
 - **Cambios:**
   - `backend/app/schemas/user.py` — Ampliado: agregados esquemas de actualización y cambio de contraseña.

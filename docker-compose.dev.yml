@@ -39,6 +39,18 @@ services:
     environment:
       - ENVIRONMENT=development
 
+  frontend:
+    image: node:22-alpine
+    container_name: votaciones_frontend_dev
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "127.0.0.1:5173:5173"
+    environment:
+      - NODE_ENV=development
+
 volumes:
   postgres_data_dev:
     driver: local

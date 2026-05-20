@@ -9,7 +9,7 @@
 - `[x]` TASK-001 — Crear documentación de gobernanza (CONTRACT, ARCHITECTURE, GOVERNANCE, CODING_STANDARDS, DECISIONS, HANDOFF, WORKLOG, TASKS)
 - `[x]` TASK-002 — Crear estructura de directorios del proyecto
 - `[x]` TASK-003 — Configurar backend base (FastAPI, SQLAlchemy, Alembic, requirements.txt, Dockerfile)
-- `[ ]` TASK-004 — Configurar frontend base (Vue 3, Vite, TailwindCSS, Pinia, Vue Router, package.json, Dockerfile) [no presente en este checkout]
+- `[x]` TASK-004 — Configurar frontend base (Vue 3, Vite, Pinia, Vue Router, package.json, Dockerfile) [CSS propio en este checkout]
 - `[x]` TASK-005 — Crear docker-compose.yml (prod) y docker-compose.dev.yml
 - `[x]` TASK-006 — Crear nginx/votaciones.conf con soporte SSE y HTTPS
 - `[x]` TASK-007 — Crear .env.example y .gitignore
@@ -57,16 +57,16 @@
 
 ---
 
-## Sprint 4 — Frontend Admin
+## Sprint 4 — Frontend Admin ✅
 
-- `[ ]` TASK-040 — Setup Vue Router (rutas de admin, vote, dashboard, login)
-- `[ ]` TASK-041 — Setup Pinia stores (auth, polls)
-- `[ ]` TASK-042 — Implementar api/client.js con refresh token automático
-- `[ ]` TASK-043 — Implementar LoginView.vue + SetupView.vue
-- `[ ]` TASK-044 — Implementar DashboardView.vue (lista de polls con estado)
-- `[ ]` TASK-045 — Implementar PollDetailView.vue (gestión: grupos, categorías, opciones)
-- `[ ]` TASK-046 — Implementar ImportView.vue (upload CSV/XLSX + preview + confirmar)
-- `[ ]` TASK-047 — Implementar UsersView.vue (CRUD de usuarios admin)
+- `[x]` TASK-040 — Setup Vue Router (rutas de admin, vote, dashboard, login)
+- `[x]` TASK-041 — Setup Pinia stores (auth, polls)
+- `[x]` TASK-042 — Implementar api/client.js con refresh token automático
+- `[x]` TASK-043 — Implementar LoginView.vue + SetupView.vue
+- `[x]` TASK-044 — Implementar DashboardView.vue (lista de polls con estado)
+- `[x]` TASK-045 — Implementar PollDetailView.vue (gestión: grupos, categorías, opciones)
+- `[x]` TASK-046 — Implementar ImportView.vue (upload CSV/XLSX + preview + confirmar)
+- `[x]` TASK-047 — Implementar UsersView.vue (CRUD de usuarios admin)
 
 ---
 

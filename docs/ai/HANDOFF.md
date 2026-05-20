@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.4.0 — Backend completo hasta Sprint 3 (reports + users)
+- **Versión actual:** 0.5.0 — Frontend admin base agregado (Sprint 4)
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -52,19 +52,28 @@
 - `schemas/user.py`: esquemas para actualización y cambio de contraseña
 - `tests/test_users_reports.py`: cobertura de CRUD de usuarios, permisos de rol y exportación XLSX
 
+**Sprint 4 — Frontend Admin**
+- `frontend/`: Vite + Vue 3 + Pinia + Vue Router con layout administrativo y CSS propio
+- `src/stores/auth.js` y `src/stores/polls.js`: estado compartido del frontend
+- `src/api/*`: cliente HTTP con cookies, CSRF y refresh automático
+- `src/views/LoginView.vue` y `src/views/SetupView.vue`: acceso y configuración inicial
+- `src/views/admin/DashboardView.vue`: lista y creación de polls
+- `src/views/admin/PollDetailView.vue`: gestión de grupos y categorías
+- `src/views/admin/ImportView.vue`: importación CSV/XLSX
+- `src/views/admin/UsersView.vue`: CRUD administrativo
+
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
-**→ Sprint 4: Frontend Admin (TASK-040 a TASK-047)**
+**→ Sprint 5: Frontend Votación + Dashboard (TASK-050 a TASK-053)**
 
-Ver `TASKS.md` sección "Sprint 4" para la lista completa.
+Ver `TASKS.md` sección "Sprint 5" para la lista completa.
 
 ### 🚫 Bloqueado
 - Nada bloqueado actualmente
 
 ### ⚠️ Desalineaciones detectadas en este checkout
-- `frontend/` no existe en el árbol real, aunque la documentación aún lo menciona como parte del proyecto objetivo.
 - `README.md` y `ARCHITECTURE.md` describen una arquitectura objetivo más amplia que el estado físico actual del repo.
 - La validación de runtime de la suite de pruebas quedó limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
 
@@ -76,7 +85,7 @@ Ver `TASKS.md` sección "Sprint 4" para la lista completa.
 ## Cómo continuar desde aquí
 
 1. Leer este archivo ✅
-2. Leer `TASKS.md` → ver qué task es "next" (Sprint 4 → TASK-040)
+2. Leer `TASKS.md` → ver qué task es "next" (Sprint 5 → TASK-050)
 3. Leer `CONTRACT.md` → reglas de negocio no negociables
 4. Leer `ARCHITECTURE.md` → entender el diseño del sistema
 5. Leer `V1_RETROSPECTIVE.md` → entender los hallazgos de seguridad y retrospectiva de V1
