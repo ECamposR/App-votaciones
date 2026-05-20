@@ -6,6 +6,22 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Corregir blockers de publicación del frontend y alinear el proxy Nginx con las rutas reales del backend.
+- **Cambios:**
+  - `frontend/src/main.js` — Actualizado: bootstrap async explícito para evitar `top-level await` en el build de Vite.
+  - `nginx/votaciones.conf` — Actualizado: proxy sin rewrite para `/api`, agregado proxy para `/auth`, `/setup`, `/v` y `/health`, con SSE conservado en `/api/dashboard/`.
+  - `frontend/package-lock.json` — Nuevo: lockfile del frontend generado para fijar dependencias npm de forma reproducible.
+  - `.gitignore` — Actualizado: se ignoró `backend/package-lock.json` para evitar ruido de herramientas Node accidentalmente ejecutadas en el backend Python.
+  - `backend/package-lock.json` — Eliminado: lockfile espurio generado por error.
+  - `docs/ai/HANDOFF.md` — Actualizado: estado actual y desalineaciones reales del checkout.
+  - `docs/ai/TASKS.md` — Actualizado: Sprint 6 marcado como en progreso para la parte de infraestructura/deploy.
+- **Decisiones tomadas:** Mantener el target de build de Vite sin cambios y resolver la incompatibilidad removiendo `top-level await` del entrypoint; corregir el proxy Nginx para que refleje exactamente las rutas expuestas por FastAPI.
+- **Resultado:** Frontend queda compilable localmente; el deploy sigue pendiente de validación en VPS y certificado.
+- **Siguiente:** Sprint 6: probar el frontend ya compilable y terminar la configuración de infraestructura/deploy.
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Completar Sprint 5 con votación pública y dashboard SSE en el frontend.
 - **Cambios:**
   - `frontend/src/api/voting.js` — Nuevo: wrapper para datos públicos, envío de voto y stream SSE.

@@ -15,7 +15,12 @@ app.use(router)
 
 installRouteGuards(router, pinia)
 
-const authStore = useAuthStore(pinia)
-await authStore.bootstrap()
+async function bootstrapApp() {
+  const authStore = useAuthStore(pinia)
+  await authStore.bootstrap()
+  app.mount('#app')
+}
 
-app.mount('#app')
+bootstrapApp().catch((error) => {
+  console.error('Failed to bootstrap application:', error)
+})

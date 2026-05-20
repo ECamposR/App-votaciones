@@ -81,7 +81,7 @@
 
 ## Sprint 6 — Infraestructura y Deploy
 
-- `[ ]` TASK-060 — Configurar Nginx en VPS para nuevo subdominio (votaciones.dominio.com)
+- `[/]` TASK-060 — Configurar Nginx en VPS para nuevo subdominio (votaciones.dominio.com)
 - `[ ]` TASK-061 — Obtener certificado Let's Encrypt para el subdominio
 - `[ ]` TASK-062 — Configurar .env en VPS con todos los secretos
 - `[ ]` TASK-063 — Primer deploy en VPS y smoke test completo

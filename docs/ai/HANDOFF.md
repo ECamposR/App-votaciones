@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.6.0 — Frontend votación + dashboard agregado (Sprint 5)
+- **Versión actual:** 0.6.1 — Frontend build corregido + proxy de producción alineado
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -69,11 +69,19 @@
 - `src/views/dashboard/LiveDashboardView.vue`: resultados en vivo por SSE con privacidad por defecto
 - `src/router/index.js`: rutas públicas `/v/:token` y dashboard SSE admin
 
+**Hardening local de frontend + proxy**
+- `frontend/src/main.js`: bootstrap async sin `top-level await`
+- `nginx/votaciones.conf`: proxy de producción alineado con `/api`, `/auth`, `/setup`, `/v` y `/health`
+- `frontend/package-lock.json`: lockfile generado y listo para versionar
+- `.gitignore`: exclusión explícita del lockfile accidental de backend
+
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
 **→ Sprint 6: Infraestructura y Deploy (TASK-060 a TASK-065)**
+
+`TASK-060` está en progreso a nivel de configuración del repo; falta validación real en VPS.
 
 Ver `TASKS.md` sección "Sprint 6" para la lista completa.
 
@@ -82,7 +90,8 @@ Ver `TASKS.md` sección "Sprint 6" para la lista completa.
 
 ### ⚠️ Desalineaciones detectadas en este checkout
 - `README.md` y `ARCHITECTURE.md` describen una arquitectura objetivo más amplia que el estado físico actual del repo.
-- La validación de runtime de la suite de pruebas quedó limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
+- La validación de runtime de la suite de pruebas sigue limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
+- La validación final de deploy depende del VPS real, Nginx y certificados, todavía no ejecutados en esta sesión.
 
 ### ❓ Decisiones pendientes
 - Subdominio exacto del VPS donde se desplegará (para Nginx config y TrustedHostMiddleware)

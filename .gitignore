@@ -141,6 +141,7 @@ yarn-error.log*
 # Vite / Frontend builds
 frontend/dist/
 frontend/.vite/
+backend/package-lock.json
 
 # Environment variables & secrets
 .env
