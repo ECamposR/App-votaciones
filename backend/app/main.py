@@ -41,6 +41,13 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# Importar y registrar routers
+from app.routers.auth import router as auth_router
+from app.routers.setup import router as setup_router
+
+app.include_router(setup_router)
+app.include_router(auth_router)
+
 # Middleware de Hosts Permitidos para mitigar ataques de cabeceras HTTP Host
 app.add_middleware(
     TrustedHostMiddleware,
@@ -55,6 +62,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Configurar middleware de seguridad adicional (HSTS, CSP, X-Frame-Options, CSRF, Rate Limiting)
+from app.middleware.security import setup_security
+setup_security(app)
 
 
 @app.get("/health", status_code=status.HTTP_200_OK, tags=["System"])

@@ -1,14 +1,14 @@
 from __future__ import annotations
 
+import uuid
 from typing import AsyncGenerator
 from fastapi import Depends, HTTPException, Request, status
-from jose import JWTError, jwt
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-from app.config import settings
 from app.database import AsyncSessionLocal
-from app.models.user import AdminUser
+from app.models.user import AdminUser, AdminRole
+from app.services.auth import verify_token
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
@@ -38,18 +38,19 @@ async def get_current_user(
             detail="No autenticado",
         )
 
-    try:
-        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=["HS256"])
-        user_id: str | None = payload.get("sub")
-        if user_id is None:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Token de autenticación inválido",
-            )
-    except JWTError:
+    user_id_str = verify_token(token, expected_type="access")
+    if not user_id_str:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Token de autenticación inválido o expirado",
+        )
+
+    try:
+        user_id = uuid.UUID(user_id_str)
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token de autenticación inválido",
         )
 
     # Buscar el usuario en la base de datos
@@ -76,7 +77,7 @@ async def require_admin(
     """
     Dependencia para restringir endpoints únicamente a usuarios con rol 'admin'.
     """
-    if current_user.role != "admin":
+    if current_user.role != AdminRole.ADMIN:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Operación permitida únicamente a administradores",
