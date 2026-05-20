@@ -3,9 +3,9 @@
     <section class="panel" style="padding: 24px">
       <div class="button-row" style="justify-content: space-between; align-items: start">
         <div>
-          <div class="muted">Dashboard en vivo</div>
-          <h2 class="section-title" style="font-size: 1.8rem">{{ pollId }}</h2>
-          <p class="muted">Escucha actualizaciones SSE y refresca resultados cada pocos segundos.</p>
+          <div class="muted">Resultados en vivo</div>
+          <h2 class="section-title" style="font-size: 1.8rem">{{ pollTitle || pollId }}</h2>
+          <p class="muted">Se actualiza automaticamente mientras la votacion este abierta.</p>
         </div>
         <div class="button-row" style="align-items: center">
           <label class="pill draft" style="gap: 8px; display: inline-flex; align-items: center; cursor: pointer">
@@ -61,6 +61,7 @@
 
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { getPoll } from '../../api/polls'
 import { streamDashboard } from '../../api/voting'
 
 const props = defineProps({
@@ -68,10 +69,20 @@ const props = defineProps({
 })
 
 const pollId = props.id
+const pollTitle = ref('')
 const results = ref([])
 const error = ref(null)
 const privacyMode = ref(true)
 let eventSource = null
+
+async function loadPollTitle() {
+  try {
+    const poll = await getPoll(pollId)
+    pollTitle.value = poll.title
+  } catch {
+    pollTitle.value = ''
+  }
+}
 
 function connect() {
   if (eventSource) {
@@ -85,16 +96,19 @@ function connect() {
       const payload = JSON.parse(event.data)
       results.value = payload.categories || []
     } catch (err) {
-      error.value = 'No se pudo parsear el dashboard SSE.'
+      error.value = 'No se pudo interpretar la actualizacion en vivo.'
     }
   }
 
   eventSource.addEventListener('error', (event) => {
-    error.value = 'Se perdió la conexión SSE. Reintentando...'
+    error.value = 'Se perdio la conexion en vivo. Reintentando...'
   })
 }
 
-onMounted(connect)
+onMounted(async () => {
+  await loadPollTitle()
+  connect()
+})
 onBeforeUnmount(() => {
   if (eventSource) {
     eventSource.close()

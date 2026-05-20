@@ -4,7 +4,7 @@
       <div class="muted">Acceso administrativo</div>
       <h1 class="section-title" style="margin-top: 6px">Ingresa al panel</h1>
       <p class="muted">
-        Usa tus credenciales para administrar polls, usuarios y reportes.
+        Usa tus credenciales para administrar votaciones, usuarios y reportes.
       </p>
 
       <form class="stack" @submit.prevent="submit">

@@ -6,6 +6,44 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Completar la primera tanda de UX del Sprint 5.5 para lenguaje, navegacion y listado, y asegurar que el frontend vuelva a compilar.
+- **Cambios:**
+  - `frontend/src/main.js` — Actualizado: bootstrap sin `top-level await` para restaurar el build de produccion.
+  - `frontend/src/utils/pollPresentation.js` — Nuevo: etiquetas humanas para estados, tipos, pesos y siguiente accion.
+  - `frontend/src/components/AppShell.vue` — Actualizado: navegacion y copy orientados a votaciones.
+  - `frontend/src/views/admin/DashboardView.vue` — Actualizado: listado de votaciones con lenguaje de usuario, conteos y accion sugerida.
+  - `frontend/src/views/admin/PollDetailView.vue` — Actualizado: textos de operacion mas claros, estado humanizado y peso mostrado como porcentaje.
+  - `frontend/src/views/admin/ImportView.vue` — Actualizado: pantalla renombrada a `Cargar candidatos`.
+  - `frontend/src/views/dashboard/LiveDashboardView.vue` — Actualizado: resultados en vivo con titulo real y mensajes sin jerga tecnica.
+  - `frontend/src/views/LoginView.vue` — Actualizado: copy de acceso sin la palabra `polls`.
+  - `docs/ai/TASKS.md` — Actualizado: UX-001 a UX-003 marcadas como completadas.
+  - `docs/ai/HANDOFF.md` — Actualizado: estado actual y siguiente paso dentro de Sprint 5.5.
+- **Decisiones tomadas:** Mantener el alcance de esta iteracion en lenguaje, navegacion y listado; dejar para UX-004 en adelante el redisenio estructural del detalle y la carga de candidatos.
+- **Resultado:** UX-001 a UX-003 implementadas y validadas con `npm run build`.
+- **Siguiente:** UX-004 — Redisenar detalle como flujo "Preparar votacion".
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
+- **Objetivo:** Iniciar Sprint 5.5 con las mejoras UX de lenguaje, navegación y listado para usuarios no técnicos.
+- **Cambios:**
+  - `frontend/src/main.js` — Actualizado: bootstrap sin `top-level await`, build de producción validado.
+  - `frontend/src/utils/pollPresentation.js` — Nuevo: etiquetas humanas para estados, tipos, pesos y siguiente acción.
+  - `frontend/src/components/AppShell.vue` — Actualizado: navegación y copy orientados a votaciones.
+  - `frontend/src/views/admin/DashboardView.vue` — Actualizado: listado de votaciones con lenguaje de usuario, conteos y acción sugerida.
+  - `frontend/src/views/admin/PollDetailView.vue` — Actualizado: textos de operación más claros, estado humanizado y peso mostrado como porcentaje.
+  - `frontend/src/views/admin/ImportView.vue` — Actualizado: pantalla renombrada a `Cargar candidatos`.
+  - `frontend/src/views/dashboard/LiveDashboardView.vue` — Actualizado: resultados en vivo con titulo real y mensajes sin jerga tecnica.
+  - `frontend/src/views/LoginView.vue` — Actualizado: copy de acceso sin la palabra `polls`.
+  - `docs/ai/TASKS.md` — Actualizado: UX-001 a UX-003 marcadas como completadas.
+  - `docs/ai/HANDOFF.md` — Actualizado: estado actual y siguiente paso dentro de Sprint 5.5.
+- **Decisiones tomadas:** Mantener el alcance de esta iteracion en lenguaje, navegacion y listado; dejar para UX-004 en adelante el rediseño estructural del detalle y la carga de candidatos.
+- **Resultado:** UX-001 a UX-003 implementadas y validadas con `npm run build`.
+- **Siguiente:** UX-004 — Redisenar detalle como flujo "Preparar votacion".
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Planificar mejoras UX para que la app sea usable por personas no técnicas que crean votaciones ocasionalmente.
 - **Cambios:**
   - `docs/ai/UX_PLAN.md` — Nuevo: guía detallada de simplificación UX con fases, tareas pequeñas y criterios de aceptación.

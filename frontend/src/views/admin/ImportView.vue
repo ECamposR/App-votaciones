@@ -1,13 +1,13 @@
 <template>
   <div class="panel" style="padding: 24px">
-    <h2 class="section-title" style="font-size: 1.8rem">Importar opciones</h2>
-    <p class="muted">Sube un CSV o XLSX para crear categorías y candidatos de forma masiva.</p>
+    <h2 class="section-title" style="font-size: 1.8rem">Cargar candidatos</h2>
+    <p class="muted">Sube un CSV o XLSX para crear categorias y candidatos de forma masiva.</p>
 
     <form class="stack" @submit.prevent="submit">
       <label class="field">
-        <span>Poll</span>
+        <span>Votacion</span>
         <select v-model="pollId" required>
-          <option value="" disabled>Selecciona un poll</option>
+          <option value="" disabled>Selecciona una votacion</option>
           <option v-for="poll in polls" :key="poll.id" :value="poll.id">{{ poll.title }}</option>
         </select>
       </label>
@@ -18,9 +18,9 @@
       </label>
 
       <div class="button-row">
-        <button class="btn" type="submit" :disabled="loading">Importar</button>
+        <button class="btn" type="submit" :disabled="loading">Cargar candidatos</button>
         <RouterLink v-if="pollId" class="btn secondary" :to="{ name: 'poll-detail', params: { id: pollId } }">
-          Ir al poll
+          Ir a la votacion
         </RouterLink>
       </div>
 

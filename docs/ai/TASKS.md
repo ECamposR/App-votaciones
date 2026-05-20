@@ -83,9 +83,9 @@
 
 > Guía completa: `docs/ai/UX_PLAN.md`
 
-- `[ ]` UX-001 — Renombrar navegación principal con lenguaje de usuario
-- `[ ]` UX-002 — Traducir estados y tipos de votación en UI
-- `[ ]` UX-003 — Ajustar listado de votaciones con acciones recomendadas
+- `[x]` UX-001 — Renombrar navegación principal con lenguaje de usuario
+- `[x]` UX-002 — Traducir estados y tipos de votación en UI
+- `[x]` UX-003 — Ajustar listado de votaciones con acciones recomendadas
 - `[ ]` UX-004 — Rediseñar detalle como flujo "Preparar votación"
 - `[ ]` UX-005 — Mostrar pesos como porcentaje y validar total 100%
 - `[ ]` UX-006 — Agregar checklist de apertura

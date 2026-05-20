@@ -3,24 +3,24 @@
     <section class="panel" style="padding: 24px" v-if="poll">
       <div class="button-row" style="justify-content: space-between; align-items: start">
         <div>
-          <div class="muted">Poll</div>
+          <div class="muted">Votacion</div>
           <h2 class="section-title" style="font-size: 1.9rem">{{ poll.title }}</h2>
           <p class="muted">{{ poll.description || 'Sin descripción' }}</p>
         </div>
-        <span class="pill" :class="poll.status">{{ poll.status }}</span>
+        <span class="pill" :class="poll.status">{{ getPollStatusLabel(poll.status) }}</span>
       </div>
 
       <div class="button-row" style="margin-top: 16px">
-        <button class="btn small secondary" type="button" @click="setStatus('open')">Abrir</button>
-        <button class="btn small secondary" type="button" @click="setStatus('closed')">Cerrar</button>
+        <button class="btn small secondary" type="button" @click="setStatus('open')">Abrir votacion</button>
+        <button class="btn small secondary" type="button" @click="setStatus('closed')">Cerrar votacion</button>
         <button class="btn small secondary" type="button" @click="exportReport">Descargar reporte</button>
-        <button class="btn small secondary" type="button" @click="reload">Recargar</button>
+        <button class="btn small secondary" type="button" @click="reload">Actualizar</button>
       </div>
     </section>
 
     <section class="grid two">
       <article class="panel" style="padding: 24px">
-        <h3>Grupos de votantes</h3>
+        <h3>Grupos de votacion</h3>
         <form class="field-grid subtle-border" @submit.prevent="addGroup">
           <label class="field">
             <span>Nombre</span>
@@ -38,8 +38,8 @@
             <div class="button-row" style="justify-content: space-between">
               <div>
                 <strong>{{ group.name }}</strong>
-                <div class="muted">Peso: {{ group.weight }}</div>
-                <div class="muted" style="font-size: 0.9rem">Token: {{ group.token }}</div>
+                <div class="muted">Peso: {{ formatWeightPercent(group.weight) }}</div>
+                <div class="muted" style="font-size: 0.9rem">Enlace de votacion: {{ group.token }}</div>
               </div>
               <div class="button-row">
                 <button class="btn small secondary" @click="editGroup(group)">Editar</button>
@@ -119,6 +119,7 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { downloadReport } from '../../api/polls'
 import { usePollsStore } from '../../stores/polls'
+import { formatWeightPercent, getPollStatusLabel } from '../../utils/pollPresentation'
 
 const route = useRoute()
 const pollsStore = usePollsStore()

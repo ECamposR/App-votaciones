@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.6.0 — Sprint 5 completo; plan UX priorizado antes de deploy
+- **Versión actual:** 0.6.1 — UX base y build frontend corregidos
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -69,16 +69,23 @@
 - `src/views/dashboard/LiveDashboardView.vue`: resultados en vivo por SSE con privacidad por defecto
 - `src/router/index.js`: rutas públicas `/v/:token` y dashboard SSE admin
 
-**Plan UX — usuarios no técnicos**
-- `docs/ai/UX_PLAN.md`: plan escrito para simplificar el flujo administrativo antes de producción
-- `docs/ai/TASKS.md`: Sprint 5.5 agregado con tareas pequeñas UX-001 a UX-017
-- Objetivo operativo: crear una votación "Empleado del mes" con 2 grupos al 50% sin conocimientos técnicos
+**Sprint 5.5 — UX para usuarios no técnicos**
+- `frontend/src/main.js`: bootstrap sin top-level await, build de producción validado
+- `frontend/src/utils/pollPresentation.js`: etiquetas humanas para tipos, estados y acciones
+- `frontend/src/components/AppShell.vue`: navegación con lenguaje de usuario
+- `frontend/src/views/admin/DashboardView.vue`: listado de votaciones con estados, conteos y siguiente acción
+- `frontend/src/views/admin/PollDetailView.vue`: texto de operacion mas claro y pesos mostrados como porcentaje
+- `frontend/src/views/admin/ImportView.vue`: pantalla de carga de candidatos renombrada
+- `frontend/src/views/dashboard/LiveDashboardView.vue`: resultados en vivo con titulo real y mensajes sin acronimos
+- `frontend/src/views/LoginView.vue`: texto administrativo sin jerga tecnica
+- `docs/ai/UX_PLAN.md`: plan escrito para las siguientes mejoras UX
+- `docs/ai/TASKS.md`: Sprint 5.5 actualizado con UX-001 a UX-003 completadas
 
 ### 🔄 En progreso
-- Nada actualmente en progreso
+- Sprint 5.5 en progreso: UX-004 a UX-017 pendientes de implementacion
 
 ### ⬜ Siguiente acción inmediata
-**→ Sprint 5.5: UX para usuarios no técnicos (UX-001 a UX-017)**
+**→ Sprint 5.5: UX para usuarios no técnicos (UX-004 a UX-017)**
 
 Ver `UX_PLAN.md` y `TASKS.md` sección "Sprint 5.5" para la lista completa.
 
@@ -89,6 +96,7 @@ Ver `UX_PLAN.md` y `TASKS.md` sección "Sprint 5.5" para la lista completa.
 - `README.md` y `ARCHITECTURE.md` describen una arquitectura objetivo más amplia que el estado físico actual del repo.
 - La validación de runtime de la suite de pruebas quedó limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
 - Existe una rama remota `codex/frontend-build-proxy-fix` con fixes de build/proxy no integrados a `main`. Por instrucción del usuario, trabajar en `main` salvo aprobación explícita para usar otra rama.
+- El plan UX documentado supera el estado implementado; quedaron pendientes UX-004 a UX-017.
 
 ### ❓ Decisiones pendientes
 - Subdominio exacto del VPS donde se desplegará (para Nginx config y TrustedHostMiddleware)

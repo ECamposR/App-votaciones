@@ -5,14 +5,14 @@
         <div class="brand-mark"></div>
         <div>
           <div class="brand-title">Votaciones V2</div>
-          <div class="muted">Admin Console</div>
+          <div class="muted">Administracion</div>
         </div>
       </div>
 
       <nav class="nav-links">
-        <RouterLink class="nav-link" :to="{ name: 'dashboard' }">Dashboard <span>01</span></RouterLink>
-        <RouterLink class="nav-link" :to="{ name: 'users' }">Usuarios <span>02</span></RouterLink>
-        <RouterLink class="nav-link" :to="{ name: 'import' }">Importar <span>03</span></RouterLink>
+        <RouterLink class="nav-link" :to="{ name: 'dashboard' }">Votaciones</RouterLink>
+        <RouterLink class="nav-link" :to="{ name: 'users' }">Usuarios</RouterLink>
+        <RouterLink class="nav-link" :to="{ name: 'import' }">Cargar candidatos</RouterLink>
       </nav>
 
       <div class="subtle-border stack" style="margin-top: 18px">
@@ -27,8 +27,8 @@
 
     <main class="content">
       <section class="hero">
-        <div class="muted">Plataforma interna · modo administración</div>
-        <h1>Controla polls, usuarios y exportaciones desde un panel unificado.</h1>
+        <div class="muted">Plataforma interna · modo administracion</div>
+        <h1>Administra votaciones, usuarios y reportes desde un panel claro.</h1>
       </section>
 
       <RouterView />
