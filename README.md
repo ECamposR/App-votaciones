@@ -90,6 +90,21 @@ JWT_SECRET=dummy_secret DATABASE_URL=postgresql+asyncpg://postgres:postgres_secu
 ```
 La API estará disponible en [http://localhost:8000](http://localhost:8000) y la documentación interactiva en [http://localhost:8000/docs](http://localhost:8000/docs).
 
+### 7. Levantar el Frontend Administrativo
+```bash
+# Desde la carpeta frontend/
+npm install
+npm run dev
+```
+El frontend quedará disponible en [http://localhost:5173](http://localhost:5173).
+
+### 8. Probar el Frontend
+1. Abre [http://localhost:5173/setup](http://localhost:5173/setup) para crear el primer admin si la base está vacía.
+2. Entra a [http://localhost:5173/login](http://localhost:5173/login) con ese usuario.
+3. Usa el dashboard para crear polls y navegar al detalle.
+4. Para votación pública, abre `http://localhost:5173/v/<token-del-grupo>` con el token generado en el poll.
+5. Para el dashboard SSE en vivo, usa el enlace `SSE` desde el dashboard admin o entra a `http://localhost:5173/admin/dashboard/<poll_id>/stream`.
+
 ---
 
 ## 🗃️ Migraciones con Alembic

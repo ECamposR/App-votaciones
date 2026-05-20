@@ -6,6 +6,23 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Completar Sprint 5 con votación pública y dashboard SSE en el frontend.
+- **Cambios:**
+  - `frontend/src/api/voting.js` — Nuevo: wrapper para datos públicos, envío de voto y stream SSE.
+  - `frontend/src/router/index.js` — Actualizado: rutas públicas `/v/:token` y dashboard SSE admin.
+  - `frontend/src/views/vote/VoteFormView.vue` — Nuevo: formulario público de votación.
+  - `frontend/src/views/vote/VoteStatusView.vue` — Nuevo: pantalla de confirmación post-voto.
+  - `frontend/src/views/dashboard/LiveDashboardView.vue` — Nuevo: dashboard SSE con modo privacidad por defecto.
+  - `frontend/src/views/admin/DashboardView.vue` — Actualizado: acceso directo a la vista SSE por poll.
+  - `docs/ai/HANDOFF.md` — Actualizado: Sprint 5 marcado como completado y siguiente acción movida a Sprint 6.
+  - `docs/ai/TASKS.md` — Actualizado: TASK-050 a TASK-053 marcadas como completadas.
+- **Decisiones tomadas:** El dashboard SSE usa visualización simple propia mientras se resuelve la incorporación de Chart.js; el modo privacidad es el estado por defecto.
+- **Resultado:** Sprint 5 implementado en árbol real y documentado. Falta validación de build en entorno con dependencias instaladas.
+- **Siguiente:** Sprint 6: infraestructura y deploy.
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Arrancar Sprint 4 y montar el frontend administrativo base del proyecto.
 - **Cambios:**
   - `frontend/package.json` — Nuevo: Vite + Vue 3 + Pinia + Vue Router.

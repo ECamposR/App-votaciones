@@ -65,6 +65,9 @@
           <RouterLink class="btn small secondary" :to="{ name: 'poll-detail', params: { id: poll.id } }">
             Abrir
           </RouterLink>
+          <RouterLink class="btn small secondary" :to="{ name: 'live-dashboard', params: { id: poll.id } }">
+            SSE
+          </RouterLink>
           <button class="btn small secondary" type="button" @click="openImport(poll.id)">Importar</button>
           <button class="btn small danger" type="button" @click="removePoll(poll.id)">Eliminar</button>
         </div>

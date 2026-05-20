@@ -8,6 +8,9 @@ import DashboardView from '../views/admin/DashboardView.vue'
 import PollDetailView from '../views/admin/PollDetailView.vue'
 import ImportView from '../views/admin/ImportView.vue'
 import UsersView from '../views/admin/UsersView.vue'
+import VoteFormView from '../views/vote/VoteFormView.vue'
+import VoteStatusView from '../views/vote/VoteStatusView.vue'
+import LiveDashboardView from '../views/dashboard/LiveDashboardView.vue'
 
 export function createAppRouter() {
   return createRouter({
@@ -15,6 +18,8 @@ export function createAppRouter() {
     routes: [
       { path: '/login', name: 'login', component: LoginView, meta: { public: true } },
       { path: '/setup', name: 'setup', component: SetupView, meta: { public: true } },
+      { path: '/v/:token', name: 'vote-form', component: VoteFormView, props: true, meta: { public: true } },
+      { path: '/v/:token/status', name: 'vote-status', component: VoteStatusView, props: true, meta: { public: true } },
       {
         path: '/',
         component: AppShell,
@@ -22,6 +27,7 @@ export function createAppRouter() {
           { path: '', redirect: { name: 'dashboard' } },
           { path: 'admin', redirect: { name: 'dashboard' } },
           { path: 'admin/dashboard', name: 'dashboard', component: DashboardView },
+          { path: 'admin/dashboard/:id/stream', name: 'live-dashboard', component: LiveDashboardView, props: true },
           { path: 'admin/polls/:id', name: 'poll-detail', component: PollDetailView, props: true },
           { path: 'admin/import', name: 'import', component: ImportView },
           { path: 'admin/users', name: 'users', component: UsersView },

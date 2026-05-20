@@ -72,10 +72,10 @@
 
 ## Sprint 5 — Frontend Votación + Dashboard
 
-- `[ ]` TASK-050 — Implementar VoteFormView.vue (formulario de voto mobile-first)
-- `[ ]` TASK-051 — Implementar VoteStatusView.vue (confirmación + cerrar pestaña)
-- `[ ]` TASK-052 — Implementar LiveDashboardView.vue (dashboard SSE con Chart.js)
-- `[ ]` TASK-053 — Implementar modo privacidad en dashboard (ocultar nombres por defecto)
+- `[x]` TASK-050 — Implementar VoteFormView.vue (formulario de voto mobile-first)
+- `[x]` TASK-051 — Implementar VoteStatusView.vue (confirmación + cerrar pestaña)
+- `[x]` TASK-052 — Implementar LiveDashboardView.vue (dashboard SSE con visualización simple)
+- `[x]` TASK-053 — Implementar modo privacidad en dashboard (ocultar nombres por defecto)
 
 ---
 

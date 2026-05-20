@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.5.0 — Frontend admin base agregado (Sprint 4)
+- **Versión actual:** 0.6.0 — Frontend votación + dashboard agregado (Sprint 5)
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -62,13 +62,20 @@
 - `src/views/admin/ImportView.vue`: importación CSV/XLSX
 - `src/views/admin/UsersView.vue`: CRUD administrativo
 
+**Sprint 5 — Frontend Votación + Dashboard**
+- `src/api/voting.js`: wrapper para datos públicos, voto y stream SSE
+- `src/views/vote/VoteFormView.vue`: boleta pública por token
+- `src/views/vote/VoteStatusView.vue`: confirmación post-voto
+- `src/views/dashboard/LiveDashboardView.vue`: resultados en vivo por SSE con privacidad por defecto
+- `src/router/index.js`: rutas públicas `/v/:token` y dashboard SSE admin
+
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
-**→ Sprint 5: Frontend Votación + Dashboard (TASK-050 a TASK-053)**
+**→ Sprint 6: Infraestructura y Deploy (TASK-060 a TASK-065)**
 
-Ver `TASKS.md` sección "Sprint 5" para la lista completa.
+Ver `TASKS.md` sección "Sprint 6" para la lista completa.
 
 ### 🚫 Bloqueado
 - Nada bloqueado actualmente
@@ -85,7 +92,7 @@ Ver `TASKS.md` sección "Sprint 5" para la lista completa.
 ## Cómo continuar desde aquí
 
 1. Leer este archivo ✅
-2. Leer `TASKS.md` → ver qué task es "next" (Sprint 5 → TASK-050)
+2. Leer `TASKS.md` → ver qué task es "next" (Sprint 6 → TASK-060)
 3. Leer `CONTRACT.md` → reglas de negocio no negociables
 4. Leer `ARCHITECTURE.md` → entender el diseño del sistema
 5. Leer `V1_RETROSPECTIVE.md` → entender los hallazgos de seguridad y retrospectiva de V1
