@@ -1,0 +1,41 @@
+# WORKLOG — Historial de trabajo
+
+> Append-only. Solo agregar, nunca modificar entradas anteriores.
+> Orden: más reciente primero.
+
+---
+
+## 2026-05-20 | Modelo: Gemini 3.5 Flash | Herramienta: Antigravity CLI
+
+- **Objetivo:** Consolidar en la documentación todo lo conversado (retrospectiva V1, blockers de seguridad de migración a internet) y planificar Sprint 1 de V2.
+- **Cambios:**
+  - `docs/ai/V1_RETROSPECTIVE.md` — Creado: resumen completo de logros de V1, fallos de seguridad (B-1 a B-7) y la transición a la arquitectura extensible de V2.
+  - `docs/ai/HANDOFF.md` — Modificado: añadido enlace e instrucción de lectura a `V1_RETROSPECTIVE.md`.
+  - `implementation_plan.md` (Artifact) — Modificado: reescrito plan de implementación para Sprint 1 (Backend Core) enfocado en V2.
+- **Decisiones tomadas:** Consolidar el contexto histórico de V1 directamente en la gobernanza de la solución V2.
+- **Resultado:** Documentación actualizada al 100% y plan de implementación para Sprint 1 listo para aprobación.
+- **Siguiente:** Esperar aprobación del usuario sobre el plan de implementación para iniciar el Sprint 1 (TASK-010).
+
+## 2026-05-20 | Modelo: Claude Sonnet 4.6 (Thinking) | Herramienta: Antigravity CLI
+
+- **Objetivo:** Inicializar proyecto V2 con sistema de gobernanza completo y scaffolding
+- **Cambios:**
+  - `docs/ai/HANDOFF.md` — Creado: punto de entrada para cualquier sesión de IA
+  - `docs/ai/CONTRACT.md` — Creado: reglas de negocio, stack, restricciones
+  - `docs/ai/ARCHITECTURE.md` — Creado: diseño del sistema, modelo de datos, API, flujos
+  - `docs/ai/CODING_STANDARDS.md` — Creado: convenciones de código backend y frontend
+  - `docs/ai/GOVERNANCE.md` — Creado: protocolo de trabajo para IA
+  - `docs/ai/DECISIONS.md` — Creado: ADR-001 a ADR-011 (decisiones fundacionales)
+  - `docs/ai/TASKS.md` — Creado: Sprint 0-6 + backlog
+  - `docs/ai/WORKLOG.md` — Creado: este archivo
+  - `backend/` — Scaffolding: requirements.txt, Dockerfile, estructura de módulos
+  - `frontend/` — Scaffolding: package.json, vite.config.js, tailwind.config.js, estructura Vue 3
+  - `nginx/votaciones.conf` — Creado: config Nginx con HTTPS, SSE sin buffer
+  - `docker-compose.yml` — Creado: producción con PostgreSQL
+  - `docker-compose.dev.yml` — Creado: desarrollo local con hot reload
+  - `.env.example` — Creado: plantilla de variables de entorno
+  - `.gitignore` — Creado
+  - `README.md` — Creado: instrucciones de setup y operación
+- **Decisiones tomadas:** ADR-001 a ADR-011 (ver DECISIONS.md)
+- **Resultado:** Sprint 0 completado. Scaffolding listo para iniciar implementación.
+- **Siguiente:** TASK-010 — Implementar modelos SQLAlchemy (Sprint 1)
