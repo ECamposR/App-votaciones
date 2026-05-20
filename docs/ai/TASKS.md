@@ -79,6 +79,30 @@
 
 ---
 
+## Sprint 5.5 — UX para usuarios no técnicos
+
+> Guía completa: `docs/ai/UX_PLAN.md`
+
+- `[ ]` UX-001 — Renombrar navegación principal con lenguaje de usuario
+- `[ ]` UX-002 — Traducir estados y tipos de votación en UI
+- `[ ]` UX-003 — Ajustar listado de votaciones con acciones recomendadas
+- `[ ]` UX-004 — Rediseñar detalle como flujo "Preparar votación"
+- `[ ]` UX-005 — Mostrar pesos como porcentaje y validar total 100%
+- `[ ]` UX-006 — Agregar checklist de apertura
+- `[ ]` UX-007 — Mover carga de candidatos al detalle de votación
+- `[ ]` UX-008 — Listar candidatos existentes por categoría
+- `[ ]` UX-009 — Agregar carga manual de candidatos
+- `[ ]` UX-010 — Agregar plantilla simple de CSV
+- `[ ]` UX-011 — Reemplazar token por enlace copiable
+- `[ ]` UX-012 — Mejorar apertura y cierre con confirmaciones claras
+- `[ ]` UX-013 — Mejorar resultados en vivo con nombre real y lenguaje no técnico
+- `[ ]` UX-014 — Simplificar boleta pública
+- `[ ]` UX-015 — Ajustar confirmación de voto
+- `[ ]` UX-016 — Crear prueba manual guiada "Empleado del mes"
+- `[ ]` UX-017 — Actualizar README y handoff de uso
+
+---
+
 ## Sprint 6 — Infraestructura y Deploy
 
 - `[ ]` TASK-060 — Configurar Nginx en VPS para nuevo subdominio (votaciones.dominio.com)
@@ -97,8 +121,8 @@
 - `[ ]` TASK-102 — Tipo de votación: Rating scale (1-5)
 - `[ ]` TASK-103 — Tipo de votación: Yes/No
 - `[ ]` TASK-104 — Tipo de votación: Ranked choice (preferencial)
-- `[ ]` TASK-105 — Plantilla CSV descargable desde UI de importación
-- `[ ]` TASK-106 — Edición manual de opciones (sin reimportar CSV)
+- `[~]` TASK-105 — Plantilla CSV descargable desde UI de importación (movido a UX-010)
+- `[~]` TASK-106 — Edición manual de opciones (movido a UX-009)
 - `[ ]` TASK-107 — Reporte PDF del dashboard
 - `[ ]` TASK-108 — QR code para link de votación en UI admin
 - `[ ]` TASK-109 — Cierre automático del poll por fecha/hora (`ends_at`)

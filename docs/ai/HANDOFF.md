@@ -10,7 +10,7 @@
 
 - **Nombre:** votaciones-v2
 - **Propósito:** Plataforma de votaciones internas con soporte para múltiples tipos de encuesta
-- **Versión actual:** 0.6.0 — Frontend votación + dashboard agregado (Sprint 5)
+- **Versión actual:** 0.6.0 — Sprint 5 completo; plan UX priorizado antes de deploy
 - **Repo:** ECamposR/App-votaciones (`git@github.com:ECamposR/App-votaciones.git`)
 - **VPS destino:** Docker + Nginx + Let's Encrypt (ya operativo con MeshCentral)
 
@@ -69,13 +69,18 @@
 - `src/views/dashboard/LiveDashboardView.vue`: resultados en vivo por SSE con privacidad por defecto
 - `src/router/index.js`: rutas públicas `/v/:token` y dashboard SSE admin
 
+**Plan UX — usuarios no técnicos**
+- `docs/ai/UX_PLAN.md`: plan escrito para simplificar el flujo administrativo antes de producción
+- `docs/ai/TASKS.md`: Sprint 5.5 agregado con tareas pequeñas UX-001 a UX-017
+- Objetivo operativo: crear una votación "Empleado del mes" con 2 grupos al 50% sin conocimientos técnicos
+
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
-**→ Sprint 6: Infraestructura y Deploy (TASK-060 a TASK-065)**
+**→ Sprint 5.5: UX para usuarios no técnicos (UX-001 a UX-017)**
 
-Ver `TASKS.md` sección "Sprint 6" para la lista completa.
+Ver `UX_PLAN.md` y `TASKS.md` sección "Sprint 5.5" para la lista completa.
 
 ### 🚫 Bloqueado
 - Nada bloqueado actualmente
@@ -83,9 +88,11 @@ Ver `TASKS.md` sección "Sprint 6" para la lista completa.
 ### ⚠️ Desalineaciones detectadas en este checkout
 - `README.md` y `ARCHITECTURE.md` describen una arquitectura objetivo más amplia que el estado físico actual del repo.
 - La validación de runtime de la suite de pruebas quedó limitada en este sandbox por la indisponibilidad del PostgreSQL de pruebas usado en `backend/tests/conftest.py`.
+- Existe una rama remota `codex/frontend-build-proxy-fix` con fixes de build/proxy no integrados a `main`. Por instrucción del usuario, trabajar en `main` salvo aprobación explícita para usar otra rama.
 
 ### ❓ Decisiones pendientes
 - Subdominio exacto del VPS donde se desplegará (para Nginx config y TrustedHostMiddleware)
+- Confirmar si Sprint 5.5 UX se implementa completo antes de retomar Sprint 6 deploy.
 
 ---
 

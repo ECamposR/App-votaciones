@@ -6,6 +6,18 @@
 
 ## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
 
+- **Objetivo:** Planificar mejoras UX para que la app sea usable por personas no técnicas que crean votaciones ocasionalmente.
+- **Cambios:**
+  - `docs/ai/UX_PLAN.md` — Nuevo: guía detallada de simplificación UX con fases, tareas pequeñas y criterios de aceptación.
+  - `docs/ai/TASKS.md` — Actualizado: agregado Sprint 5.5 con tareas UX-001 a UX-017; movidas tareas de plantilla CSV y edición manual de opciones desde backlog al plan UX.
+  - `docs/ai/HANDOFF.md` — Actualizado: siguiente acción priorizada a Sprint 5.5 UX antes del deploy y nota sobre rama remota no integrada.
+- **Decisiones tomadas:** Priorizar la corrección de experiencia de usuario antes del despliegue en VPS, porque la app será usada por personas no técnicas y de baja frecuencia.
+- **Resultado:** Plan UX documentado y dividido en tareas manejables para implementar de forma incremental.
+- **Siguiente:** Empezar por UX-001 a UX-003: lenguaje, navegación y listado de votaciones.
+
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
 - **Objetivo:** Completar Sprint 5 con votación pública y dashboard SSE en el frontend.
 - **Cambios:**
   - `frontend/src/api/voting.js` — Nuevo: wrapper para datos públicos, envío de voto y stream SSE.
