@@ -2,6 +2,8 @@
 
 Esta es la segunda versión (V2) de la plataforma de votaciones internas para organizaciones, rediseñada para ser segura, escalable y flexible. Permite configurar múltiples tipos de votaciones (mayoría simple, voto preferencial, etc.) y estructurar grupos de votación con pesos ponderados.
 
+> Nota sobre este checkout: el árbol actual contiene el backend, las migraciones, los tests y la documentación de gobernanza. El frontend descrito más abajo sigue siendo el objetivo arquitectónico, pero no está presente en el repositorio en este estado.
+
 ---
 
 ## 🏗️ Arquitectura y Stack Tecnológico

@@ -13,6 +13,14 @@ sin ella, el contexto se pierde.
 
 **Regla de oro:** Si no está documentado, no ocurrió.
 
+**Regla de interoperabilidad:** todo cambio realizado en el proyecto debe quedar registrado fielmente
+en la documentación correspondiente, de forma que otra IA pueda retomar el trabajo sin depender de
+memoria implícita ni de contexto externo. Como mínimo:
+- `WORKLOG.md` para el historial de cambios
+- `HANDOFF.md` para el estado actual
+- `TASKS.md` para el estado de tareas
+- `DECISIONS.md` cuando haya decisiones de diseño
+
 ---
 
 ## 2. Protocolo de sesión
@@ -32,6 +40,9 @@ sin ella, el contexto se pierde.
 3. **Actualizar `TASKS.md`** — Marcar tareas completadas, agregar tareas nuevas descubiertas
 4. Si se tomaron decisiones de diseño → registrar en `DECISIONS.md`
 5. Hacer commit con mensaje descriptivo
+
+> La actualización debe ser fiel al estado real del checkout. No se debe inflar ni adelantar
+> documentación como si el código ya existiera cuando todavía no está implementado.
 
 ### Formato de entrada en WORKLOG.md
 ```markdown

@@ -4,6 +4,26 @@
 > Orden: más reciente primero.
 
 
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
+- **Objetivo:** Formalizar la regla de interoperabilidad documental para sesiones futuras de IA.
+- **Cambios:**
+  - `docs/ai/GOVERNANCE.md` — Ajustado: se agregó la regla explícita de que todo cambio debe registrarse fielmente en `WORKLOG.md`, `HANDOFF.md`, `TASKS.md` y `DECISIONS.md` cuando aplique.
+- **Decisiones tomadas:** Priorizar trazabilidad completa del trabajo entre herramientas IA sobre resúmenes implícitos.
+- **Resultado:** Regla de interoperabilidad documentada y visible para cualquier sesión futura.
+- **Siguiente:** Si se realizan nuevos cambios, reflejarlos de inmediato en la documentación correspondiente antes de cerrar la sesión.
+
+## 2026-05-20 | Modelo: Codex | Herramienta: auditoría local
+
+- **Objetivo:** Auditar el estado real del repositorio y alinear la documentación con el árbol actual.
+- **Cambios:**
+  - `docs/ai/HANDOFF.md` — Ajustado: se agregó una sección de desalineaciones detectadas y se eliminó la afirmación de que el frontend ya está presente en el checkout.
+  - `docs/ai/TASKS.md` — Ajustado: `TASK-004` quedó pendiente porque el frontend no existe en el árbol real.
+  - `README.md` — Ajustado: se añadió una nota indicando que el frontend sigue siendo objetivo arquitectónico, no estado actual.
+- **Decisiones tomadas:** Priorizar la verdad del checkout actual sobre el plan objetivo documentado.
+- **Resultado:** Documentación alineada con el estado físico del repo.
+- **Siguiente:** Implementar Sprint 3 si se decide continuar con código, empezando por `TASK-031`.
+
 ## 2026-05-20 | Modelo: Gemini 3.5 Flash | Herramienta: Antigravity CLI
 
 - **Objetivo:** Recuperar scaffolding del Sprint 0, implementar modelos de datos asíncronos y migraciones de Alembic (Sprint 1), e inicializar repositorio remoto.

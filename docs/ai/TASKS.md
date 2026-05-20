@@ -9,7 +9,7 @@
 - `[x]` TASK-001 — Crear documentación de gobernanza (CONTRACT, ARCHITECTURE, GOVERNANCE, CODING_STANDARDS, DECISIONS, HANDOFF, WORKLOG, TASKS)
 - `[x]` TASK-002 — Crear estructura de directorios del proyecto
 - `[x]` TASK-003 — Configurar backend base (FastAPI, SQLAlchemy, Alembic, requirements.txt, Dockerfile)
-- `[x]` TASK-004 — Configurar frontend base (Vue 3, Vite, TailwindCSS, Pinia, Vue Router, package.json, Dockerfile)
+- `[ ]` TASK-004 — Configurar frontend base (Vue 3, Vite, TailwindCSS, Pinia, Vue Router, package.json, Dockerfile) [no presente en este checkout]
 - `[x]` TASK-005 — Crear docker-compose.yml (prod) y docker-compose.dev.yml
 - `[x]` TASK-006 — Crear nginx/votaciones.conf con soporte SSE y HTTPS
 - `[x]` TASK-007 — Crear .env.example y .gitignore
@@ -31,19 +31,19 @@
 
 ---
 
-## Sprint 2 — Backend Polls + Votación
+## Sprint 2 — Backend Polls + Votación ✅
 
-- `[ ]` TASK-020 — Implementar router polls: GET /polls, POST /polls, GET /polls/{id}, PATCH /polls/{id}, DELETE /polls/{id}
-- `[ ]` TASK-021 — Implementar router polls: POST /polls/{id}/status (draft→open→closed)
-- `[ ]` TASK-022 — Implementar router polls: POST /polls/{id}/voter-groups (CRUD grupos)
-- `[ ]` TASK-023 — Implementar router polls: POST /polls/{id}/categories (CRUD categorías)
-- `[ ]` TASK-024 — Implementar service importer.py (parseo CSV/XLSX → options) [rescatar de V1]
-- `[ ]` TASK-025 — Implementar router polls: POST /polls/{id}/options/import
-- `[ ]` TASK-026 — Implementar service scoring.py (cálculo ponderado) [rescatar lógica de V1]
-- `[ ]` TASK-027 — Implementar router voting: GET /v/{token}/data, POST /v/{token}/vote
-- `[ ]` TASK-028 — Implementar router dashboard: GET /dashboard/{id}/stream (SSE con cache)
-- `[ ]` TASK-029 — Tests: scoring con múltiples grupos y weights (100% cobertura)
-- `[ ]` TASK-030 — Tests: flujo de votación completo (doble voto, token inválido, poll cerrado)
+- `[x]` TASK-020 — Implementar router polls: GET /polls, POST /polls, GET /polls/{id}, PATCH /polls/{id}, DELETE /polls/{id}
+- `[x]` TASK-021 — Implementar router polls: POST /polls/{id}/status (draft→open→closed)
+- `[x]` TASK-022 — Implementar router polls: GET+POST+PATCH+DELETE /polls/{id}/voter-groups (CRUD grupos)
+- `[x]` TASK-023 — Implementar router polls: GET+POST+PATCH+DELETE /polls/{id}/categories (CRUD categorías)
+- `[x]` TASK-024 — Implementar service importer.py (parseo CSV/XLSX → options)
+- `[x]` TASK-025 — Implementar router polls: POST /polls/{id}/options/import
+- `[x]` TASK-026 — Implementar service scoring.py (cálculo ponderado con redistribución dinámica de pesos)
+- `[x]` TASK-027 — Implementar router voting: GET /v/{token}/data, POST /v/{token}/vote
+- `[x]` TASK-028 — Implementar router dashboard: GET /api/dashboard/{id}/stream (SSE nativo)
+- `[x]` TASK-029 — Tests: scoring con múltiples grupos y weights (97% cobertura en scoring.py)
+- `[x]` TASK-030 — Tests: flujo de votación completo (doble voto, token inválido, poll cerrado)
 
 ---
 
