@@ -18,14 +18,14 @@
 
 ## Sprint 1 — Backend Core (modelos + auth)
 
-- `[ ]` TASK-010 — Implementar modelos SQLAlchemy: AdminUser, Poll, VoterGroup, Category, Option, Vote
-- `[ ]` TASK-011 — Crear primera migración Alembic (schema inicial completo)
-- `[ ]` TASK-012 — Implementar config.py con pydantic-settings (todas las variables de entorno)
-- `[ ]` TASK-013 — Implementar database.py (engine async, session factory)
-- `[ ]` TASK-014 — Implementar deps.py (get_db, get_current_user, require_admin)
+- `[x]` TASK-010 — Implementar modelos SQLAlchemy: AdminUser, Poll, VoterGroup, Category, Option, Vote
+- `[x]` TASK-011 — Crear primera migración Alembic (schema inicial completo)
+- `[x]` TASK-012 — Implementar config.py con pydantic-settings (todas las variables de entorno)
+- `[x]` TASK-013 — Implementar database.py (engine async, session factory)
+- `[x]` TASK-014 — Implementar deps.py (get_db, get_current_user, require_admin)
 - `[ ]` TASK-015 — Implementar router auth: POST /auth/login, /auth/logout, /auth/refresh, GET /auth/me
 - `[ ]` TASK-016 — Implementar router setup: GET/POST /setup (primer admin)
-- `[ ]` TASK-017 — Implementar router health: GET /health
+- `[x]` TASK-017 — Implementar router health: GET /health
 - `[ ]` TASK-018 — Implementar middleware: security headers, CSRF, rate limiting
 - `[ ]` TASK-019 — Tests: auth flow completo (login, token refresh, logout, acceso denegado)
 

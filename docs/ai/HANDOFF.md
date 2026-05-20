@@ -20,16 +20,17 @@
 
 ### ✅ Completado
 - Documentación de gobernanza (CONTRACT, ARCHITECTURE, CODING_STANDARDS, GOVERNANCE, DECISIONS, WORKLOG, TASKS)
-- Scaffolding inicial del proyecto (estructura de directorios, Dockerfiles, docker-compose, .env.example)
-- Configuración base de backend (FastAPI, SQLAlchemy 2.0, Alembic, estructura de módulos)
-- Configuración base de frontend (Vue 3, Vite, TailwindCSS, Vue Router, Pinia)
-- Nginx config con SSE support
+- Scaffolding base recuperado de Sprint 0 (docker-compose, docker-compose.dev, .env.example, .gitignore, nginx/votaciones.conf)
+- Configuración base de backend core (FastAPI, database.py, config.py, deps.py, uvicorn entrypoint, /health endpoint)
+- Modelos SQLAlchemy 2.0 (AdminUser, Poll, VoterGroup, Category, Option, Vote)
+- Configuración de Alembic async y primera migración ejecutada localmente en DB Postgres
+- Inicializado repositorio Git y subido a origin (`git@github.com:ECamposR/App-votaciones.git`) con un README.md detallado
 
 ### 🔄 En progreso
 - Nada actualmente en progreso
 
 ### ⬜ Siguiente acción inmediata
-**→ Implementar los modelos de datos del backend**
+**→ Implementar rutas de autenticación y setup: POST /auth/login, /auth/logout, /auth/refresh, GET /auth/me, y GET/POST /setup**
 
 Ver `TASKS.md` sección "Sprint 1 — Backend Core" para la lista completa y ordenada.
 

@@ -3,6 +3,23 @@
 > Append-only. Solo agregar, nunca modificar entradas anteriores.
 > Orden: más reciente primero.
 
+
+## 2026-05-20 | Modelo: Gemini 3.5 Flash | Herramienta: Antigravity CLI
+
+- **Objetivo:** Recuperar scaffolding del Sprint 0, implementar modelos de datos asíncronos y migraciones de Alembic (Sprint 1), e inicializar repositorio remoto.
+- **Cambios:**
+  - `backend/app/config.py` — Creado: configuración de variables de entorno usando pydantic-settings.
+  - `backend/app/database.py` — Creado: conexión y fábrica de sesiones asíncronas de SQLAlchemy 2.0.
+  - `backend/app/deps.py` — Creado: dependencias de base de datos (`get_db`) y auth JWT.
+  - `backend/app/main.py` — Creado: app FastAPI con CORS, TrustedHost y endpoint `/health`.
+  - `backend/app/models/` — Creado: modelos `AdminUser`, `Poll`, `VoterGroup`, `Category`, `Option` y `Vote` con SQLAlchemy 2.0.
+  - `backend/alembic/` — Creado: inicialización asíncrona de Alembic, configuración de `env.py` y primera migración del esquema inicial aplicada.
+  - `docker-compose.yml`, `docker-compose.dev.yml`, `nginx/votaciones.conf`, `.gitignore`, `.env.example` — Creado: archivos base de infraestructura y docker.
+  - `README.md` — Creado: documentación técnica y manual de configuración rápida.
+- **Decisiones tomadas:** Se mantuvo la restricción única `UniqueConstraint("poll_id", "voter_group_id", "voter_token", "option_id")` en `Vote` para no comprometer soporte futuro para voto preferencial (Ranked Choice), y se añadió `category_id` como FK para optimizar consultas de conteo.
+- **Resultado:** Completado con éxito. Base de datos PostgreSQL inicializada con migraciones, y código inicializado y pusheado a GitHub.
+- **Siguiente:** Implementar router de autenticación y setup (TASK-015 y TASK-016).
+
 ---
 
 ## 2026-05-20 | Modelo: Gemini 3.5 Flash | Herramienta: Antigravity CLI
